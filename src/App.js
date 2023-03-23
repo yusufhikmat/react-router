@@ -8,12 +8,11 @@ import PostPage from './components/PostPage';
 import Footer from './components/Footer';
 import { Routes, Route,useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import data from './asset/data/data';
 import { format } from 'date-fns';
 
 function App() {
   const [search, setSearch] = useState('')
-  const [posts, setPosts] = useState(data)
+  const [posts, setPosts] = useState([])
   const [postTitle, setPostTitle] = useState('')
   const [postBody, setPostBody] = useState('');
   const navigate = useNavigate()
@@ -39,14 +38,14 @@ function App() {
     navigate.push("/")
   } 
   return (
-    <>
+    <div className='App'>
      <Nav search={search} setSearch={setSearch}/>
      <Routes>
       <Route index path="/" element={<Home  
         posts={posts.filter((post)=>
          ((post.body).toLowerCase()).includes(search.toLowerCase())
         || ((post.title).toLowerCase()).includes(search.toLowerCase()) 
-        )}/>}/>
+        ).reverse()}/>}/>
       <Route path="/about" element={<About />} />
       <Route path="/post" element={<Newpost 
           postTitle={postTitle}
@@ -60,7 +59,7 @@ function App() {
       <Route path="*" element ={<Missing/>} />
      </Routes>
      <Footer />
-     </>
+     </div>
   );
 }
 
