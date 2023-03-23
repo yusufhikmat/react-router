@@ -36,7 +36,9 @@ body {
   justify-content: space-between;
   align-items: center;
   width:100%;
+  color: var(--white-text-color);
 }
+
 .nav-icon{
 display:none;
 }
@@ -46,7 +48,7 @@ nav,.nav-ul{
 .nav-list{
   padding: 0 2rem;
   font-size: var(--medium-fs);
-  color: var(--white-text-color);
+  
 }
 
 /*navbar form*/
@@ -56,6 +58,10 @@ nav,.nav-ul{
 .search input{
   padding:0.5rem;
 
+}
+/*post*/
+article{
+  line-height: 2rem;
 }
 /*footer*/
 .footer{
@@ -70,5 +76,4 @@ nav,.nav-ul{
   font-size: var(--medium-fs);
   color: var(--white-text-color)
 }
-
 

@@ -12,7 +12,12 @@ import data from './asset/data/data';
 
 function App() {
   const [search, setSearch] = useState('')
-  const [posts, setPost] = useState([data])
+  const [posts, setPosts] = useState(data)
+
+  const handlePostDelete = (id)=>{
+    const deletePost = posts.filter((post)=>post.id !== id)
+    setPosts(deletePost)
+  } 
   return (
     <>
      <Nav search={search} setSearch={setSearch}/>
@@ -20,7 +25,7 @@ function App() {
       <Route index path="/" element={<Home  posts={posts}/>}/>
       <Route path="/about" element={<About />} />
       <Route path="/post" element={<Newpost />}/>
-      <Route path="/post/:id" element={<PostPage />}/>
+      <Route path="/post/:id" element={<PostPage posts={posts} handlePostDelete={handlePostDelete}/>}/>
       <Route path="*" element ={<Missing/>} />
      </Routes>
      <Footer />

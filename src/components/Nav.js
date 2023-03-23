@@ -1,18 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import { FaBars , FaRegWindowClose} from "react-icons/fa";
 
 
 const Nav = ({search, setSearch}) => {
+  const [toggle, setToggle] = useState(true)
+
+  const handleToggle = ()=>{
+    setToggle(!toggle)
+  }
   const handleSubmit =(e)=>{
     e.preventDefault()
   }
   return (
-    <div className='navbar'>
+    <div className={toggle ? 'navbar responsive' : "navbar"}>
+    <div className='nav-logo'>Router</div>
     <nav>
-      <div className='nav-icon'>
-        <Link className='nav-list'><FaBars /></Link>
-        <Link className='nav-list'><FaRegWindowClose /></Link>
+      <div className='nav-icon' onClick={handleToggle}>
+      {toggle ? <FaBars /> : <FaRegWindowClose />}
       </div>
       <ul className='nav-ul'>
         <li><Link className='nav-list' to="/">Home</Link></li>
