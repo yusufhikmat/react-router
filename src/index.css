@@ -26,6 +26,7 @@ a{
 
 body {
   min-height: 100vh;
+  position: relative;
   width:100%;
   display:flex;
   background-color: var(--bg);
@@ -33,6 +34,15 @@ body {
 }
 
  /*navbar*/
+ .header{
+  background-color: #000;
+  height:2rem;
+  color:var(--white-text-color);
+  padding:0.8rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+ }
  .navbar{
   background-image: linear-gradient(to right,#e07b39, #80391e);
   height:4rem;

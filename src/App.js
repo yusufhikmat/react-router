@@ -6,11 +6,14 @@ import About from './components/About';
 import Missing from './components/Missing';
 import PostPage from './components/PostPage';
 import Footer from './components/Footer';
+import EditPosts from './components/EditPosts';
 import { Routes, Route,useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
-import api from './api/posts'
-import EditPosts from './components/EditPosts';
+import api from './api/posts';
+import Header from './components/Header';
+import useWindowSize from './hooks/useWindowSize';
+
 
 function App() {
   const [search, setSearch] = useState('')
@@ -19,7 +22,8 @@ function App() {
   const [postBody, setPostBody] = useState('');
   const [editTitle, setEditTitle] = useState('')
   const [editBody, setEditBody] = useState('');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const {width} = useWindowSize()
  
   useEffect(()=>{
     const fetchPosts = async ()=>{
@@ -75,6 +79,7 @@ function App() {
 }
   return (
     <>
+    <Header title="React-Router" width={width}/>
      <Nav search={search} setSearch={setSearch}/>
      <Routes>
       <Route index path="/" element={<Home  
