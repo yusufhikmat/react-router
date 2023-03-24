@@ -1,0 +1,122 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  :root{
+    --large-font-size :22px;
+    --bg :#ccc;
+    --white-text-color:#fff;
+    --large-fs:1.5rem;
+    --medium-fs:1rem;
+    --small-fs :0.7rem;
+  }
+  li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+    color:#000000;
+  }
+  body {
+    width:100%;
+    min-height: 100vh;
+    position: relative;
+    display:flex;
+    background-color: var(--bg);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .App {
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  /*navbar*/
+  .navbar{
+    background-image: linear-gradient(to right,#e07b39, #80391e);
+    height:4rem;
+    padding:0.8rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    color: var(--white-text-color);
+  }
+  
+  .nav-icon{
+  display:none;
+  }
+  nav,.nav-ul{
+    display:flex;
+  }
+  .nav-list{
+    padding: 0 2rem;
+    font-size: var(--medium-fs);
+    
+  }
+  
+  /*navbar form*/
+  .search label{
+    display: none;
+  }
+  .search input{
+    padding:0.5rem;
+  
+  }
+  /*post*/
+  article{
+    line-height: 2rem;
+    border-bottom: 0.5px solid #000;
+    padding: 1rem;
+  }
+  
+  .datetime{
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+  button{
+    padding:0.5rem 1rem;
+    background-color: #80391e;
+    color:var(--white-text-color);
+    font-size: var(--medium-fs);
+    border:none;
+    border-radius: 0.5rem;
+    text-transform: capitalize;
+    margin:0.5rem 0;
+  }
+  
+  /*newpost*/
+  .form{
+    display:flex;
+    flex-direction: column;
+    border:1px solid gray;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+  
+  }
+  .form label{
+    font-size: var(--medium-fs);
+  }
+  .form
+  /*footer*/
+  .footer{
+    background-color: #80391e;
+    height: 2rem;
+    position: absolute;
+    bottom:0;
+    display:flex;
+    align-items: center;
+    width:100%;
+    justify-content: center;
+    font-size: var(--medium-fs);
+    color: var(--white-text-color)
+  }
+  
+  
