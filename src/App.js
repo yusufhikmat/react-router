@@ -31,7 +31,14 @@ function App() {
         const response = await api.get('/posts');
         setPosts(response.data)
       }catch(err){
-        console.log(err.msg) 
+        if(err.msg){
+          //not in the 200 response range
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        }else{
+          console.log(err.msg) 
+      }
       }
     }
     fetchPosts()
@@ -48,6 +55,7 @@ function App() {
       setPosts(allPosts);
       setPostTitle('');
       setPostBody('');
+      navigate.push("/");
     }catch(err){
       console.log(err.msg)
     }}
@@ -59,8 +67,9 @@ function App() {
       try{
         const response = await api.put(`/posts/${id}`, updatedPost)
         setPosts(posts.map((post)=>post.id === id ? {...response.data} : post))
-        setEditTitle('')
-        setEditBody('')
+        setEditTitle('');
+        setEditBody('');
+        navigate.push("/");
       }catch(err){
         console.log(err.msg)
       }
